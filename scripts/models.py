@@ -52,7 +52,7 @@ def tfidf_ranking(summaries,documents,top_nb=5):
 
     return ranking
 
-def simple_model_ranking(x_train,x_test,y_train,y_test,feature_names,target_names):
+def simple_model_ranking(x_train,x_test,y_train):
 
     clf = RidgeClassifier(tol=1e-2, solver="sparse_cg")
     clf.fit(x_train, y_train)
