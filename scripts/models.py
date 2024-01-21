@@ -11,6 +11,7 @@ import pandas as pd
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import RidgeClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 
 ## Variables ##
@@ -60,4 +61,10 @@ def simple_model_ranking(x_train,x_test,y_train):
 
     return pred
 
+def random_forest_ranking(x_train,x_test,y_train):
 
+    clf = RandomForestClassifier(max_depth=2, random_state=0)
+    clf.fit(x_train, y_train)
+    prediction = clf.predict(x_test)
+
+    return prediction
