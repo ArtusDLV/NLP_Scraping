@@ -8,7 +8,7 @@ import gensim
 from gensim import corpora
 
 def topic_modeling():
-    data = pd.read_csv('D:/Artus/École/A5/Machine Learning for NLP/Projet 2/trustpilot_en_50_page.csv')
+    data = pd.read_csv('/trustpilot_en_50_page_corrected.csv')
     doc_complete =data['Review']
 
     stop = set(stopwords.words('english'))
@@ -28,7 +28,6 @@ def topic_modeling():
     ldamodel = Lda(doc_term_matrix, num_topics=3, id2word = dictionary, passes=50)
     return ldamodel
 
-# Personnalisation de la barre latérale
 st.markdown(
     """
     <style>
@@ -47,13 +46,10 @@ st.markdown(
 
 image = Image.open('/visualisation_word2vec.jpg')
 
-# Création de la barre latérale
 sidebar = st.sidebar
 
-# Ajout des options à la barre latérale
 selected_tab = sidebar.radio('Navigation', ['Accueil', 'Word2Vec', 'Topic modeling'])
 
-# Affichage du contenu en fonction de l'onglet sélectionné
 if selected_tab == 'Accueil':
     st.title('Bienvenue sur le Streamlit du projet 2 de Machine Learning for NLP')
     st.write('Thomas Bouguet - Artus Chapelain')
