@@ -51,7 +51,7 @@ image = Image.open(my_file)
 
 sidebar = st.sidebar
 
-selected_tab = sidebar.radio('Navigation', ['Accueil', 'Word2Vec', 'Topic modeling'])
+selected_tab = sidebar.radio('Navigation', ['Accueil', 'Word2Vec', 'Topic modeling', 'Text generation'])
 
 if selected_tab == 'Accueil':
     st.title('Bienvenue sur le Streamlit du projet 2 de Machine Learning for NLP')
@@ -75,4 +75,13 @@ elif selected_tab == 'Topic modeling':
         topic_modeling_computed = topic_modeling().print_topics(num_topics=3, num_words=3)
         st.write(topic_modeling_computed)
         recompute = False
+
+elif selected_tab == 'Text generation':
+    st.title('Text generation')
+    st.write('Voici le texte généré après 40 epochs')
+    txt_file = path+'/generated_text.txt'
+    uploaded_file = st.file_uploader(txt_file)
+    if uploaded_file:
+        for line in uploaded_file:
+            st.write(line)
     
