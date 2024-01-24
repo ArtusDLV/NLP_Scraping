@@ -6,6 +6,7 @@ import string
 import pandas as pd
 import gensim
 from gensim import corpora
+import os
 
 def topic_modeling():
     data = pd.read_csv('/trustpilot_en_50_page_corrected.csv')
@@ -44,7 +45,9 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-image = Image.open('/visualisation_word2vec.jpg')
+path = os.path.dirname(__file__)
+my_file = path+'/visualisation_word2vec.jpg'
+image = Image.open(my_file)
 
 sidebar = st.sidebar
 
