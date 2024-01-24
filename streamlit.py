@@ -80,8 +80,6 @@ elif selected_tab == 'Text generation':
     st.title('Text generation')
     st.write('Voici le texte généré après 40 epochs')
     txt_file = path+'/generated_text.txt'
-    uploaded_file = st.file_uploader(txt_file)
-    if uploaded_file:
-        for line in uploaded_file:
-            st.write(line)
+    f = open(txt_file, "r")
+    st.write(f.read())
     
