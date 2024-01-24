@@ -45,7 +45,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-image = Image.open('D:/Artus/École/A5/Machine Learning for NLP/Projet 2/visualisation_word2vec.jpg')
+image = Image.open('/visualisation_word2vec.jpg')
 
 # Création de la barre latérale
 sidebar = st.sidebar
