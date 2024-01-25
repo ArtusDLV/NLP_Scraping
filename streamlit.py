@@ -95,7 +95,7 @@ elif selected_tab == 'Prediction':
             model = pickle.load(file)
         with open('vectorizer.pkl', 'rb') as file:
             vectorizer = pickle.load(file)
-        data = vectorizer.transform(input_data)
+        data = vectorizer.transform([input_data])
         prediction = model.predict(data)
         st.write(prediction)
     
