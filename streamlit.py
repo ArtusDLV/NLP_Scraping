@@ -89,11 +89,11 @@ elif selected_tab == 'Prediction':
     st.write("Prédire la note d'un avis")
     input_data = st.text_input('Review', 'The food was delicious !')
     random_forest = st.button("Predict using random forest")
+    path = 'random_forest_model.pkl'
     if(random_forest):
-        path = 'random_forest_model.pkl'
-    with open(path, 'rb') as file:
-        model = pickle.load(file)
-    prediction = model.predict(input_data)
-
-    st.write(prediction)
+        with open(path, 'rb') as file:
+            model = pickle.load(file)
+        prediction = model.predict(input_data)
+        st.write(prediction)
+    
     
