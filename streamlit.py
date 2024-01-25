@@ -7,6 +7,7 @@ import pandas as pd
 import gensim
 from gensim import corpora
 import os
+import pickle
 
 def topic_modeling():
     data = pd.read_csv('/trustpilot_en_50_page_corrected.csv')
@@ -51,7 +52,7 @@ image = Image.open(my_file)
 
 sidebar = st.sidebar
 
-selected_tab = sidebar.radio('Navigation', ['Accueil', 'Word2Vec', 'Topic modeling', 'Text generation'])
+selected_tab = sidebar.radio('Navigation', ['Accueil', 'Word2Vec', 'Topic modeling', 'Text generation', 'Prediction'])
 
 if selected_tab == 'Accueil':
     st.title('Bienvenue sur le Streamlit du projet 2 de Machine Learning for NLP')
@@ -82,4 +83,20 @@ elif selected_tab == 'Text generation':
     txt_file = path+'/generated_text.txt'
     f = open(txt_file, "r")
     st.write(f.read())
+
+elif selected_tab == 'Prediction':
+    st.title('Prediction')
+    st.write("Nous utilisons deux modèles différents pour prédire la note d'un avis")
+    input_data = st.text_input('Review', 'The food was delicious !')
+    model2 = st.button("Predict using neural network")
+    random_forest = st.button("Predict using random forest")
+    if(model2):
+        path = 'model2.pkl'
+    if(random_forest):
+        path = 'random_forest_model.pkl'
+    with open(path, 'rb') as file:
+        model = pickle.load(file)
+    prediction = model.predict(input_data)
+
+    st.write(prediction)
     
