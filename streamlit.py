@@ -93,7 +93,7 @@ elif selected_tab == 'Prediction':
     if(random_forest):
         with open(path, 'rb') as file:
             model = pickle.load(file)
-        prediction = model.predict(input_data)
+        prediction = model.predict('The food was delicious')
         st.write(prediction)
     
     
