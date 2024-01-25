@@ -8,6 +8,7 @@ import gensim
 from gensim import corpora
 import os
 import pickle
+import sklearn
 
 def topic_modeling():
     data = pd.read_csv('/trustpilot_en_50_page_corrected.csv')
