@@ -86,12 +86,9 @@ elif selected_tab == 'Text generation':
 
 elif selected_tab == 'Prediction':
     st.title('Prediction')
-    st.write("Nous utilisons deux modèles différents pour prédire la note d'un avis")
+    st.write("Prédire la note d'un avis")
     input_data = st.text_input('Review', 'The food was delicious !')
-    model2 = st.button("Predict using neural network")
     random_forest = st.button("Predict using random forest")
-    if(model2):
-        path = 'model2.pkl'
     if(random_forest):
         path = 'random_forest_model.pkl'
     with open(path, 'rb') as file:
