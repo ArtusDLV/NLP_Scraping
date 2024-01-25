@@ -97,6 +97,7 @@ elif selected_tab == 'Prediction':
             vectorizer = pickle.load(file)
         data = vectorizer.transform([input_data])
         prediction = model.predict(data)
-        st.write(prediction)
+        st.write("Grade : " + str(prediction))
+        random_forest = False
     
     
